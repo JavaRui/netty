@@ -16,16 +16,16 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MessageServerHandler  extends SimpleChannelInboundHandler<IMMessage> implements ServerHandlerFace{
     private IMEncoder encoder = new IMEncoder();
-    @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        log.info("进来了 MessageServerHandler");
-        super.channelRead(ctx,msg);
-        boolean b = acceptInboundMessage(msg);
-        if(!b){
-            log.info("已经跳过了？？？？？？直接下一个handler");
-            ctx.channel().pipeline().remove(this);
-        }
-    }
+//    @Override
+//    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+//        log.info("进来了 MessageServerHandler");
+//        super.channelRead(ctx,msg);
+//        boolean b = acceptInboundMessage(msg);
+//        if(!b){
+//            log.info("已经跳过了？？？？？？直接下一个handler");
+//            ctx.channel().pipeline().remove(this);
+//        }
+//    }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, IMMessage msg) throws Exception {
